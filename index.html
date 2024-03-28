@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Weather Dashboard App</title>
+</head>
+
+
+<body>
+    <!-- Header Content Area -->
+    <header>
+        <h1>Andrew's Weather Dashboard</h1>
+        <p>Your go-to web app for weather.</p>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <aside>
+            <div class="aside-container">
+                <h2>Search for a City:</h2>
+                <form id="search-form">
+                    <input id="city-input" type="text" placeholder="Enter a City">
+                    <button id="submit">Search</button>
+                </form>
+                <!-- Local storage of previous search history. -->
+                <div>
+                    <div id="search-history"></div>
+                    <h3>Example City 1</h3>
+                    <h3>Example City 1</h3>
+                    <h3>Example City 1</h3>
+                    <h3>Example City 1</h3>
+                </div>
+            </div>
+        </aside>
+        <div class="main-container">
+            <div class="main-body">
+                <!-- Main Content -->
+                <div id="current-weather-container">
+                    <div id="current-weather-result"></div>
+                    <p>THIS IS SOME TEXT TO FILL THE AREA AND SEE HOW IT LOOKS ON DESKTOP PREVIEW AND MOBILE PREVIEW.</p>
+
+                </div>
+                <div class="secondary-body">
+                    <div id="future-weather-container">
+                        <div id="future-weather-result"></div>
+                        <p>THIS IS SOME TEXT TO FILL THE AREA AND SEE HOW IT LOOKS ON DESKTOP PREVIEW AND MOBILE PREVIEW.</p>
+                        <p>THIS IS SOME TEXT TO FILL THE AREA AND SEE HOW IT LOOKS ON DESKTOP PREVIEW AND MOBILE PREVIEW.</p>
+                        <p>THIS IS SOME TEXT TO FILL THE AREA AND SEE HOW IT LOOKS ON DESKTOP PREVIEW AND MOBILE PREVIEW.</p>
+                        <p>THIS IS SOME TEXT TO FILL THE AREA AND SEE HOW IT LOOKS ON DESKTOP PREVIEW AND MOBILE PREVIEW.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <!-- Primary Footer Area -->
+    <footer id="footer">
+        <p>Source code is licensed under the MIT license.</p>
+        <p>Contents of this site are Copyright &copy; 2024 by Andrew Hamerly.</p>
+        <p>All Content Rights Reserved.</p>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
