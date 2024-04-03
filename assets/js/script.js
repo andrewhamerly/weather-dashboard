@@ -23,7 +23,7 @@ function renderResults(resultObj) {
 
     const resultHeader = document.createElement('h3');
     resultHeader.classList.add('card-header');
-    resultHeader.innerHTML = `${resultObj.city.name} <img src="http://openweathermap.org/img/w/${icon}.png" alt="img"></img>`;
+    resultHeader.innerHTML = `Todays Weather ${resultObj.city.name} <img src="http://openweathermap.org/img/w/${icon}.png" alt="img"></img>`;
 
     const dateContentEl = document.createElement('p');
     dateContentEl.innerHTML = `<strong>Date:</strong> ${resultObj.list[0].dt_txt}`;
@@ -41,6 +41,48 @@ function renderResults(resultObj) {
 
     // Find existing result card and replace it with the new one
     const existingResultCard = document.querySelector('.card');
+    if (existingResultCard) {
+        existingResultCard.replaceWith(resultCard);
+    } else {
+        // If there's no existing result card, just append the new one
+        currentWeatherEl.appendChild(resultCard);
+    }
+}
+
+// FUNCTION TO PRINT THE FUTURE 5 DAY FORECAST RESULTS TO THE PAGE
+function printForecast(resultObj) {
+    console.log(resultObj);
+
+    // Update the UI dynamically with the retrieved weather forecast data.
+    const resultCard = document.createElement('div');
+    resultCard.classList.add('cast-card');
+
+    const resultBody = document.createElement('div');
+    resultBody.classList.add('cast-card-body');
+    resultCard.append(resultBody);
+
+    const icon = resultObj.list[0].weather[0].icon; // DEFINING THE ICON 3 DIGIT CODE TO A VARIBALE
+
+    const resultHeader = document.createElement('h3');
+    resultHeader.classList.add('cast-card-header');
+    resultHeader.innerHTML = `Tomorrows Weather ${resultObj.city.name} <img src="http://openweathermap.org/img/w/${icon}.png" alt="img"></img>`;
+
+    const dateContentEl = document.createElement('p');
+    dateContentEl.innerHTML = `<strong>Date:</strong> ${resultObj.list[8].dt_txt}`;
+
+    const tempContentEl =document.createElement('p');
+    tempContentEl.innerHTML = `<strong>Temp:</strong> ${resultObj.list[8].main.temp} F`;
+
+    const humidityContentEl = document.createElement('p');
+    humidityContentEl.innerHTML = `<strong>Humidity:</strong> ${resultObj.list[8].main.humidity}%`;
+
+    const windContentEl = document.createElement('p');
+    windContentEl.innerHTML = `<strong>Wind:</strong> ${resultObj.list[8].wind.speed}mph<br/>`;
+
+    resultBody.append(resultHeader, dateContentEl, tempContentEl, humidityContentEl, windContentEl);
+
+    // Find existing result card and replace it with the new one
+    const existingResultCard = document.querySelector('.cast-card');
     if (existingResultCard) {
         existingResultCard.replaceWith(resultCard);
     } else {
@@ -89,7 +131,7 @@ fetch(openWeatherQueryURL)
         console.log(forecastData.list[0].main.temp);
 
         renderResults(forecastData); // Calls function to display current weather
-        // printForecast(forecastData); // Calls function to display 5 day forecast weather
+        printForecast(forecastData); // Calls function to display 5 day forecast weather
         // Save to localStorage
         saveToLocalStorage(city);
         // Update search history display
