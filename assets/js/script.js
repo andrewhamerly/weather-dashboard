@@ -1,6 +1,6 @@
 // GRAB MAIN ELEMENTS FROM THE DOM AND ASSIGN TO A VARIABLE
 let formEl = document.querySelector("#search-form");
-let cityInputEl = document.querySelector("#city-input")
+let cityInputEl = document.querySelector("#city-input");
 let buttonEl = document.querySelector("#submit");
 let searchHistoryEl = document.querySelector("#search-history");
 let currentWeatherEl = document.querySelector("#current-weather-result");
@@ -23,7 +23,7 @@ function renderResults(resultObj) {
 
     const resultHeader = document.createElement('h3');
     resultHeader.classList.add('card-header');
-    resultHeader.innerHTML = `Todays Weather ${resultObj.city.name} <img src="http://openweathermap.org/img/w/${icon}.png" alt="img"></img>`;
+    resultHeader.innerHTML = `Todays Weather ${resultObj.city.name} <img src="https://openweathermap.org/img/w/${icon}.png" alt="img"></img>`;
 
     const dateContentEl = document.createElement('p');
     dateContentEl.innerHTML = `<strong>Date:</strong> ${resultObj.list[0].dt_txt}`;
@@ -61,11 +61,11 @@ function printForecast(resultObj) {
     resultBody.classList.add('cast-card-body');
     resultCard.append(resultBody);
 
-    const icon = resultObj.list[0].weather[0].icon; // DEFINING THE ICON 3 DIGIT CODE TO A VARIBALE
+    const icon = resultObj.list[8].weather[0].icon; // DEFINING THE ICON 3 DIGIT CODE TO A VARIBALE
 
     const resultHeader = document.createElement('h3');
     resultHeader.classList.add('cast-card-header');
-    resultHeader.innerHTML = `Tomorrows Weather ${resultObj.city.name} <img src="http://openweathermap.org/img/w/${icon}.png" alt="img"></img>`;
+    resultHeader.innerHTML = `Tomorrows Weather ${resultObj.city.name} <img src="https://openweathermap.org/img/w/${icon}.png" alt="img"></img>`;
 
     const dateContentEl = document.createElement('p');
     dateContentEl.innerHTML = `<strong>Date:</strong> ${resultObj.list[8].dt_txt}`;
